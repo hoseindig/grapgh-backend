@@ -6,7 +6,12 @@ var nJwt = require("njwt");
 var bodyParser = require("body-parser");
 var cors = require("cors");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // exact origin
+    credentials: true,
+  }),
+);
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
