@@ -270,7 +270,7 @@ app.post("/api/login", function (req, res) {
     token = TOKEN_VALUE;
     result = "success";
   } else {
-    res.send({ result: result });
+    res.status(401).send({ result: "unauthorized" });
     return;
   }
   res.send({ token: token, result: result });
